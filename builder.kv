@@ -1,0 +1,39 @@
+<MyLayout>
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        Image:
+            stopnie:0
+            id:img
+            source: 'arrow.png'
+            size: self.texture_size
+            canvas.before:
+                PushMatrix
+                Rotate:
+                    angle: self.stopnie
+                    origin: self.center
+            canvas.after:
+                PopMatrix
+
+        Label:
+            id: lb1
+            text: "0"
+            font_size: 60
+
+        BoxLayout:
+            orientation: "horizontal"
+            size: root.width, root.height
+
+    
+            Button:
+                size_hint: (.5, .8)
+                font_size: 20
+                text: "lewo"
+                on_press: root.lewo()
+
+            Button:
+                size_hint: (.5, .8)
+                font_size: 20
+                text: "prawo"
+                on_press: root.prawo()
